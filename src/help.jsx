@@ -46,7 +46,9 @@ function Help(){
                     </div>
     ))}
         </div>
-        <p className="footer">© CS Association 2025 - 26</p>
+        <div className="footer">
+            <p>© CS Association 2025 - 26</p>
+            </div>
         </main>
     )
 }
