@@ -70,18 +70,18 @@
 }
 
 .gallery-line {
-  width: 2px;
+  width: 4px;
   height: 100px;
   background: linear-gradient(to bottom, transparent, #f8f6f4, transparent);
   flex-shrink: 0;
 }
 
 .gallery-line-left {
-  margin-right: 20px;
+  margin-right: -44px;
 }
 
 .gallery-line-right {
-  margin-left: 20px;
+  margin-left: -40px;
 }
 
 .gallery-carousel-wrapper {

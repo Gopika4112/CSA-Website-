@@ -69,18 +69,18 @@
 }
 
 .execom-line {
-  width: 2px;
+  width: 3px;
   height: 100px;
   background: linear-gradient(to bottom, transparent, #f8f6f4, transparent);
   flex-shrink: 0;
 }
 
 .execom-line-left {
-  margin-right: 20px;
+  margin-right: -6px;
 }
 
 .execom-line-right {
-  margin-left: 20px;
+  margin-left: 0px;
 }
 
 .execom-cards-container {
