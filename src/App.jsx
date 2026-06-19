@@ -3,6 +3,7 @@ import React from "react";
 import HeroArtwork from "./components/home/HeroArtwork/HeroArtwork";
 import Navbar from "./components/home/Navbar/Navbar";
 import Resources from "./components/home/Resource/Resources";
+import Execom from "./components/home/Execom/Execom";
 import "./styles.css";
 
 function App() {
@@ -36,6 +37,10 @@ function App() {
         </div>
 
         <HeroArtwork />
+      </section>
+
+      <section id="execom">
+        <Execom />
       </section>
 
       <section id="resources">
