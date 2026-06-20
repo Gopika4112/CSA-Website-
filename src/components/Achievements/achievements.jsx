@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import csaLogo from "./assets/csa_logo.svg";
 import Navbar from "../home/Navbar/Navbar";
 
 const achievements = [
