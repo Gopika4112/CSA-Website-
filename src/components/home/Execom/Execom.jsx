@@ -1,6 +1,11 @@
 import './Execom.css';
+import { useState, useRef } from 'react';
 
 const teamMembers = [
+  { name: 'Name', position: 'Position', phone: '91892019201' },
+  { name: 'Name', position: 'Position', phone: '91892019201' },
+  { name: 'Name', position: 'Position', phone: '91892019201' },
+  { name: 'Name', position: 'Position', phone: '91892019201' },
   { name: 'Name', position: 'Position', phone: '91892019201' },
   { name: 'Name', position: 'Position', phone: '91892019201' },
   { name: 'Name', position: 'Position', phone: '91892019201' },
@@ -8,6 +13,21 @@ const teamMembers = [
 ];
 
 export default function Execom() {
+  const [currentIndex, setCurrentIndex] = useState(0);
+  const carouselRef = useRef(null);
+
+  const cardWidth = 280 + 24;
+  const visibleCards = 4;
+  const maxIndex = teamMembers.length - visibleCards;
+
+  const scrollLeft = () => {
+    setCurrentIndex((prev) => Math.max(0, prev - 1));
+  };
+
+  const scrollRight = () => {
+    setCurrentIndex((prev) => Math.min(maxIndex, prev + 1));
+  };
+
   return (
     <section className="execom-section">
       <div className="execom-title-container">
@@ -27,28 +47,58 @@ export default function Execom() {
         </div>
       </div>
 
-      <div className="execom-cards-container">
-        {teamMembers.map((member, index) => (
-          <div className="execom-card" key={index}>
-            <div className="execom-avatar">
-              <div className="avatar-placeholder">
-                <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
-                  <circle cx="50" cy="50" r="50" fill="#3a2a32"/>
-                  <circle cx="50" cy="38" r="18" fill="#e8c9a8"/>
-                  <ellipse cx="50" cy="85" rx="28" ry="25" fill="#e94e7a"/>
-                </svg>
+      <div className="execom-carousel-wrapper">
+        <button 
+          className="execom-nav-btn execom-nav-left" 
+          onClick={scrollLeft}
+          disabled={currentIndex === 0}
+          aria-label="Scroll left"
+        >
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+            <polyline points="15 18 9 12 15 6"></polyline>
+          </svg>
+        </button>
+
+        <div className="execom-carousel-viewport">
+          <div 
+            className="execom-carousel-track"
+            ref={carouselRef}
+            style={{ transform: `translateX(-${currentIndex * cardWidth}px)` }}
+          >
+            {teamMembers.map((member, index) => (
+              <div className="execom-card" key={index}>
+                <div className="execom-avatar">
+                  <div className="avatar-placeholder">
+                    <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+                      <circle cx="50" cy="50" r="50" fill="#3a2a32"/>
+                      <circle cx="50" cy="38" r="18" fill="#e8c9a8"/>
+                      <ellipse cx="50" cy="85" rx="28" ry="25" fill="#e94e7a"/>
+                    </svg>
+                  </div>
+                </div>
+                <h3 className="execom-name">{member.name}</h3>
+                <p className="execom-position">{member.position}</p>
+                <div className="execom-phone">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z" stroke="#f8f6f4" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+                  </svg>
+                  <span>{member.phone}</span>
+                </div>
               </div>
-            </div>
-            <h3 className="execom-name">{member.name}</h3>
-            <p className="execom-position">{member.position}</p>
-            <div className="execom-phone">
-              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z" stroke="#f8f6f4" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-              </svg>
-              <span>{member.phone}</span>
-            </div>
+            ))}
           </div>
-        ))}
+        </div>
+
+        <button 
+          className="execom-nav-btn execom-nav-right" 
+          onClick={scrollRight}
+          disabled={currentIndex >= maxIndex}
+          aria-label="Scroll right"
+        >
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+            <polyline points="9 18 15 12 9 6"></polyline>
+          </svg>
+        </button>
       </div>
     </section>
   );

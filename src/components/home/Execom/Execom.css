@@ -1,5 +1,5 @@
 .execom-section {
-  padding: 60px 40px 80px;
+  padding: 60px 0 80px;
   background-color: #3a2a32;
 }
 
@@ -64,7 +64,7 @@
   letter-spacing: -0.05em;
   text-align: center;
   margin: 0;
-  padding: 0;
+  padding: 0 40px;
   color: #f8f6f4;
 }
 
@@ -83,16 +83,55 @@
   margin-left: 0px;
 }
 
-.execom-cards-container {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 24px;
-  max-width: 1200px;
+.execom-carousel-wrapper {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  max-width: 1400px;
   margin: 0 auto;
-  padding: 0 20px;
+  padding: 0 60px;
+}
+
+.execom-carousel-viewport {
+  flex: 1;
+  overflow: hidden;
+}
+
+.execom-carousel-track {
+  display: flex;
+  gap: 24px;
+  transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.execom-nav-btn {
+  flex-shrink: 0;
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  border: 2px solid rgba(248, 246, 244, 0.3);
+  background: rgba(58, 42, 50, 0.8);
+  color: #f8f6f4;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s ease;
+}
+
+.execom-nav-btn:hover:not(:disabled) {
+  background: rgba(248, 246, 244, 0.15);
+  border-color: rgba(248, 246, 244, 0.5);
+  transform: scale(1.1);
+}
+
+.execom-nav-btn:disabled {
+  opacity: 0.3;
+  cursor: not-allowed;
 }
 
 .execom-card {
+  flex-shrink: 0;
+  width: 280px;
   background: rgba(58, 42, 50, 0.6);
   border: 1px solid rgba(248, 246, 244, 0.2);
   border-radius: 16px;
@@ -163,10 +202,6 @@
 }
 
 @media (max-width: 1024px) {
-  .execom-cards-container {
-    grid-template-columns: repeat(2, 1fr);
-  }
-
   .execom-title {
     font-size: 60px;
   }
@@ -175,20 +210,24 @@
     right: 10%;
     width: 30px;
   }
+
+  .execom-card {
+    width: 240px;
+  }
+
+  .execom-carousel-wrapper {
+    padding: 0 40px;
+  }
 }
 
 @media (max-width: 640px) {
   .execom-section {
-    padding: 40px 20px 60px;
-  }
-
-  .execom-cards-container {
-    grid-template-columns: 1fr;
-    gap: 20px;
+    padding: 40px 0 60px;
   }
 
   .execom-title {
     font-size: 48px;
+    padding: 0 20px;
   }
 
   .execom-line {
@@ -198,5 +237,19 @@
   .dinosaur-logo-execom {
     right: 5%;
     width: 25px;
+  }
+
+  .execom-carousel-wrapper {
+    padding: 0 20px;
+    gap: 12px;
+  }
+
+  .execom-nav-btn {
+    width: 40px;
+    height: 40px;
+  }
+
+  .execom-card {
+    width: 220px;
   }
 }

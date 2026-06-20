@@ -1,4 +1,5 @@
 import './Gallery.css';
+import { useState, useEffect } from 'react';
 
 const galleryImages = [
   { id: 1, alt: 'Group photo 1' },
@@ -12,7 +13,27 @@ const galleryImages = [
 ];
 
 export default function Gallery() {
+  const [selectedImage, setSelectedImage] = useState(null);
   const duplicatedImages = [...galleryImages, ...galleryImages];
+
+  const openLightbox = (img) => {
+    setSelectedImage(img);
+  };
+
+  const closeLightbox = () => {
+    setSelectedImage(null);
+  };
+
+  useEffect(() => {
+    const handleKeyDown = (e) => {
+      if (e.key === 'Escape' && selectedImage) {
+        closeLightbox();
+      }
+    };
+
+    document.addEventListener('keydown', handleKeyDown);
+    return () => document.removeEventListener('keydown', handleKeyDown);
+  }, [selectedImage]);
 
   return (
     <section className="gallery-section">
@@ -36,7 +57,11 @@ export default function Gallery() {
       <div className="gallery-carousel-wrapper">
         <div className="gallery-carousel">
           {duplicatedImages.map((img, index) => (
-            <div className="gallery-card" key={`${img.id}-${index}`}>
+            <div 
+              className="gallery-card" 
+              key={`${img.id}-${index}`}
+              onClick={() => openLightbox(img)}
+            >
               <div className="gallery-image-placeholder">
                 <svg viewBox="0 0 400 300" xmlns="http://www.w3.org/2000/svg">
                   <rect width="400" height="300" fill="#5a4a52"/>
@@ -52,6 +77,31 @@ export default function Gallery() {
           ))}
         </div>
       </div>
+
+      {selectedImage && (
+        <div className="lightbox-overlay" onClick={closeLightbox}>
+          <div className="lightbox-content" onClick={(e) => e.stopPropagation()}>
+            <button className="lightbox-close" onClick={closeLightbox} aria-label="Close lightbox">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                <line x1="18" y1="6" x2="6" y2="18"></line>
+                <line x1="6" y1="6" x2="18" y2="18"></line>
+              </svg>
+            </button>
+            <div className="lightbox-image">
+              <svg viewBox="0 0 800 600" xmlns="http://www.w3.org/2000/svg">
+                <rect width="800" height="600" fill="#5a4a52"/>
+                <rect x="40" y="40" width="720" height="520" rx="20" fill="#6b5c63" opacity="0.6"/>
+                <circle cx="200" cy="200" r="80" fill="#7a6b72"/>
+                <circle cx="400" cy="180" r="70" fill="#8a7b82"/>
+                <circle cx="600" cy="200" r="80" fill="#7a6b72"/>
+                <circle cx="300" cy="380" r="76" fill="#8a7b82"/>
+                <circle cx="500" cy="380" r="76" fill="#7a6b72"/>
+              </svg>
+            </div>
+            <p className="lightbox-caption">{selectedImage.alt}</p>
+          </div>
+        </div>
+      )}
     </section>
   );
 }
