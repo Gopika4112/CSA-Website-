@@ -120,8 +120,8 @@
 
 .gallery-card {
   flex-shrink: 0;
-  width: 280px;
-  height: 200px;
+  width: 360px;
+  height: 250px;
   border-radius: 16px;
   overflow: hidden;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
@@ -308,8 +308,8 @@
   }
 
   .gallery-card {
-    width: 240px;
-    height: 170px;
+    width: 300px;
+    height: 210px;
   }
 }
 
@@ -357,8 +357,8 @@
   }
 
   .gallery-card {
-    width: 200px;
-    height: 140px;
+    width: 260px;
+    height: 180px;
   }
 
   .gallery-carousel {
