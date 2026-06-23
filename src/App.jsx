@@ -2,6 +2,7 @@ import React from "react";
 
 import HeroArtwork from "./components/home/HeroArtwork/HeroArtwork";
 import Navbar from "./components/home/Navbar/Navbar";
+import Placements from "./components/placements/Placements";
 import "./styles.css";
 
 function App() {
@@ -36,6 +37,8 @@ function App() {
 
         <HeroArtwork />
       </section>
+
+      <Placements />
     </main>
   );
 }
