@@ -1,22 +1,35 @@
-@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&display=swap');
+:root{
+    --color-text: #202020;
+    --bg-color: #836C5A;
+    --c-ink:  #1E1E1E;
+    --c-warm: #836C5A;  
+    --font:   'Plus Jakarta Sans', sans-serif;
+}
 
-:root {
-  --text-primary: #202020;
-  --bg-color: #836C5A;
-  --text-secondary: #836C5A;
-  --title-font: "Plus Jakarta Sans", sans-serif;
+@font-face {
+  font-family: 'Plus Jakarta Sans';
+  src: url('../assets/fonts/PlusJakartaSans-SemiBold.ttf');
+  font-weight: 600;
+}
+
+@font-face {
+  font-family: 'Plus Jakarta Sans';
+  src: url('../assets/fonts/PlusJakartaSans-ExtraBold.ttf');
+  font-weight: 800;
 }
 
 .achievements-page {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   background-color: var(--bg-color);
-  margin-top:400px;
-  font-family:var(--title-font) ;
-  font-weight: 600;
+  font-family: 'Plus Jakarta Sans';
   color: var(--text-primary);
   padding-bottom: 180px;
 }
 
 .title-section {
+  --heading-size: clamp(3.5rem, 14vw, 10rem);
   display: flex;
   flex-direction: column;
   position: relative;
@@ -24,6 +37,28 @@
   align-items: center;
   padding: 50px 0;
   width: 100%;
+  font-size: var(--heading-size);
+}
+
+.title-section::before,
+.title-section::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: var(--color-text);
+  font-size: inherit;
+}
+
+.title-section::before { 
+  top: 50%;
+  transform: translateY(-0.28em);
+}
+
+.title-section::after { 
+  top: 50%;
+  transform: translateY(0.15em);
 }
 
 .title-frame {
@@ -31,18 +66,8 @@
   flex-direction: row;
   position: relative;
   justify-content: center;
-  align-items: center;
+  align-items: stretch;
   margin: 0 auto;
-}
-
-.title {
-  font-family: var(--title-font);
-  font-size: 5rem;
-  font-weight: 900;
-  letter-spacing: -0.08em;
-  text-align: center;
-  margin: 0;
-  padding: 0;
 }
 
 .line {
@@ -51,47 +76,6 @@
       var(--text-secondary),
       var(--text-primary),
       var(--text-secondary));
-  height: 100px;
   flex-shrink: 0;
 }
 
-.left {
-  margin-right: -6px;
-}
-
-.right {
-  margin-left: 2px;
-}
-
-.border-frame {
-  position: absolute;
-  width: 100%;
-  height: 40px;
-  padding: 0;
-  margin: 0;
-  top: 50%;
-  transform: translateY(-26%);
-  pointer-events: none;
-}
-
-.top {
-  background-color: var(--resources-bg-secondary);
-  height: 2px;
-  width: 100%;
-  position: absolute;
-  top: 0;
-}
-
-.bottom {
-  background-color: var(--text-primary);
-  height: 2px;
-  width: 100%;
-  position: absolute;
-  bottom: 0;
-}
-
-.title-container {
-  display: flex;
-  flex-direction: column;
-  position: relative;
-}
