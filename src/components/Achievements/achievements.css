@@ -196,3 +196,12 @@
   color: var(--c-ink);
   opacity: 0.9;
 }
+
+@media (max-width: 768px) {
+  .carousel-section { flex-direction: column; padding: 40px 20px 80px; }
+  .carousel-inner { flex-direction: column; }
+  .poster-wrap { width: 260px; height: 340px; }
+  .edge-stack { display: none; }
+  .title-section::before { top: 52%; }
+  .title-section::after  { top: 78%; }
+}
