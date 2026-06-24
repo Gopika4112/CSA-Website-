@@ -1,5 +1,6 @@
 import HeroArtwork from "./components/home/HeroArtwork/HeroArtwork";
 import Navbar from "./components/home/Navbar/Navbar";
+import AlumniInsights from "./components/AlumniInsights/AlumniInsights";
 import Placements from "./components/Placements/Placements";
 import Resources from "./components/home/Resource/Resources";
 import Help from "./components/Help/help";
@@ -40,7 +41,9 @@ function App() {
 
       <section id="placements">
         <Placements />
+        <AlumniInsights />
       </section>
+      
       <section id="resources">
         <Resources />
       </section>
