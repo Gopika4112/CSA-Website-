@@ -339,30 +339,66 @@
 
 @media (max-width: 640px) {
   .gallery-section {
-    padding: 60px 0;
+    min-height: auto;
+    padding: 40px 0;
+  }
+
+  .gallery-title-container {
+    margin-bottom: 30px;
   }
 
   .gallery-title {
     font-size: 50px;
     padding: 0 20px;
+    letter-spacing: -0.06em;
   }
 
   .gallery-line {
-    height: 60px;
+    height: 40px;
+    width: 2px;
+  }
+
+  .gallery-line-left {
+    margin-right: -30px;
+    top: 10px;
+  }
+
+  .gallery-line-right {
+    margin-left: -18px;
+    top: 10px;
+  }
+
+  .gallery-border-frame {
+    height: 30px;
+  }
+
+  .gallery-border-top {
+    top: -8px;
+  }
+
+  .gallery-border-bottom {
+    bottom: -18px;
   }
 
   .dinosaur-logo-gallery {
     right: 5%;
-    width: 25px;
+    width: 24px;
+    top: 6px;
+  }
+
+  .gallery-carousel-wrapper {
+    padding: 20px 0 20px 16px;
   }
 
   .gallery-card {
-    width: 260px;
-    height: 180px;
+    width: 220px;
+    height: 150px;
+    border-radius: 12px;
+    border-width: 1.5px;
   }
 
   .gallery-carousel {
-    gap: 16px;
+    gap: 10px;
   }
 
   .lightbox-header {
@@ -380,5 +416,10 @@
 
   .lightbox-title {
     font-size: 16px;
+  }
+
+  .lightbox-nav {
+    width: 32px;
+    height: 32px;
   }
 }

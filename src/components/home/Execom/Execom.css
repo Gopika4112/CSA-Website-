@@ -87,7 +87,6 @@
 
 .execom-line-right {
   margin-left: -35px;
-
   position: relative;
   top: 15px;
 }
@@ -239,34 +238,87 @@
 
 @media (max-width: 640px) {
   .execom-section {
-    padding: 60px 0;
+    min-height: auto;
+    padding: 40px 0;
+  }
+
+  .execom-title-container {
+    margin-bottom: 30px;
   }
 
   .execom-title {
     font-size: 50px;
     padding: 0 20px;
+    letter-spacing: -0.06em;
   }
 
   .execom-line {
-    height: 60px;
+    height: 40px;
+    width: 2px;
+  }
+
+  .execom-line-left {
+    margin-right: -30px;
+    top: 10px;
+  }
+
+  .execom-line-right {
+    margin-left: -18px;
+    top: 10px;
+  }
+
+  .execom-border-frame {
+    height: 30px;
+  }
+
+  .execom-border-top {
+    top: -8px;
+  }
+
+  .execom-border-bottom {
+    bottom: -18px;
   }
 
   .dinosaur-logo-execom {
     right: 5%;
-    width: 25px;
+    width: 24px;
+    top: 6px;
   }
 
   .execom-carousel-wrapper {
-    padding: 0 20px;
-    gap: 12px;
+    padding: 0 12px;
+    gap: 10px;
   }
 
   .execom-nav-btn {
-    width: 40px;
-    height: 40px;
+    width: 36px;
+    height: 36px;
   }
 
   .execom-card {
-    width: 260px;
+    width: 220px;
+    padding: 20px 14px;
+    border-radius: 12px;
+    border-width: 1px;
+  }
+
+  .execom-avatar {
+    width: 80px;
+    height: 80px;
+    margin-bottom: 14px;
+  }
+
+  .execom-name {
+    font-size: 16px;
+  }
+
+  .execom-position {
+    font-size: 12px;
+    margin-bottom: 10px;
+  }
+
+  .execom-phone {
+    font-size: 12px;
+    gap: 6px;
   }
 }
