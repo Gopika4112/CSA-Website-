@@ -4,6 +4,7 @@ import AlumniInsights from "./components/AlumniInsights/AlumniInsights";
 import Placements from "./components/Placements/Placements";
 import Resources from "./components/Resource/Resources";
 import Help from "./components/Help/help";
+import Achievements from "./components/Achievements/achievements";
 import "./styles.css";
 
 function App() {
@@ -43,7 +44,9 @@ function App() {
         <Placements />
         <AlumniInsights />
       </section>
-      
+            <section id="achievements">
+        <Achievements />
+      </section>
       <section id="resources">
         <Resources />
       </section>
